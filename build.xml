@@ -1,0 +1,14 @@
+<project name="netcore-junit-split" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dn="antlib:org.apache.ant.dotnet" xmlns="antlib:org.apache.tools.ant">
+	<description>DotNet MSTest to JUnit split - Generate html reports</description>
+
+    <target name="report" description="Genera reports html desde los resultados convertidos a JUnit">
+      <junitreport todir="reports/mstest-report.trx.split">
+        <fileset dir="reports/mstest-report.trx.split">
+          <include name="TEST-*.xml" />
+        </fileset>
+        <report format="frames" todir="reports/mstest-junit-frames" />
+        <report format="noframes" todir="reports/mstest-junit-noframes" />
+      </junitreport>
+  </target>
+
+</project>
