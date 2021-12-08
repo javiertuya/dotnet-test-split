@@ -21,7 +21,7 @@ namespace Giis.DotnetTestSplit
             }
             string inputFileName = args[0];
             string workingFolder = inputFileName + ".split";
-            Console.WriteLine("Split mstest into multiple junit testsuite files from: " + Path.Combine(workingFolder, inputFileName));
+            Console.WriteLine("Split mstest into multiple junit testsuite files from: " + inputFileName);
 
             new DotnetTestSplitMain().Run(inputFileName, workingFolder);
         }

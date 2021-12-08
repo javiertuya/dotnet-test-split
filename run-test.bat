@@ -1,5 +1,5 @@
 REM Prepare test assets
-dotnet test --logger "trx;LogFileName=../../reports/mstest-report.trx" TestAssetsMstest/TestAssetsMstest.csproj
+dotnet test TestAssetsMstest/TestAssetsMstest.csproj --logger "trx;LogFileName=../../reports/mstest-report.trx" 
 
 REM Split tests assets
 dotnet build
@@ -8,7 +8,7 @@ DotnetTestSplit.exe ..\..\..\..\reports\mstest-report.trx
 cd ..\..\..\..\
 
 REM Run test
-dotnet test --logger "trx;LogFileName=dotnet-test-split-report.trx" TestDotnetTestSplit/TestDotnetTestSplit.csproj
+dotnet test TestDotnetTestSplit/TestDotnetTestSplit.csproj --logger "trx;LogFileName=dotnet-test-split-report.trx" 
 
 cmd /c ant report
 pause

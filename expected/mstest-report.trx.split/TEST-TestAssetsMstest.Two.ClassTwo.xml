@@ -14,6 +14,6 @@ MESSAGE:
 Assert.AreEqual failed. Expected:&lt;88&gt;. Actual:&lt;8&gt;. 
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsMstest.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 80
+   at TestAssetsMstest.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /TestAssetsMstest/TestAssetsMstest.cs:line 80
 </failure></testcase>
 </testsuite>

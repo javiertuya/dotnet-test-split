@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Giis.DotnetTestSplit;
 using System.IO;
 using System.Text.RegularExpressions;
-using System;
 using System.Linq;
+using System.Xml.Linq;
+using System;
 
 namespace Test4Giis.DotnetTestSplit
 {
@@ -16,32 +16,50 @@ namespace Test4Giis.DotnetTestSplit
 
         [DataTestMethod]
         [DataRow("TEST-TestAssetsMstest.One.ClassOne.xml")]
-        [DataRow("TEST-TestAssetsMstest.One.ClassOne.xml")]
+        [DataRow("TEST-TestAssetsMstest.One.ClassTwo.xml")]
         [DataRow("TEST-TestAssetsMstest.Two.ClassOne.xml")]
         [DataRow("TEST-TestAssetsMstest.Two.ClassTwo.xml")]
-        public void TestMstest(string testFile)
+        public void TestMstest(string testFileName)
         {
             //DotnetTestSplitMain w = new DotnetTestSplitMain();
             //w.Run(trxFile, outFolder);
             //Split must be executed from outside
-            AssertFile(testFile);
-        }
-        private void AssertFile(string fileName)
-        {
-            string expected = File.ReadAllText(Path.Combine(expectedFolder, fileName));
-            string actual = File.ReadAllText(Path.Combine(outFolder, fileName));
+
             //remove times and sort expected and actual to make comparable
-            expected = MakeComparable(expected);
-            actual = MakeComparable(actual);
-            Assert.AreEqual(expected, actual, "Comparing file: " + fileName);
+            string expected = ReadComparable(Path.Combine(expectedFolder, testFileName));
+            string actual = ReadComparable(Path.Combine(outFolder, testFileName));
+
+            //to check differences manually with compared data
+            Directory.CreateDirectory(Path.Combine(outFolder + "compare-expected"));
+            Directory.CreateDirectory(Path.Combine(outFolder + "compare-actual"));
+            File.WriteAllText(Path.Combine(outFolder + "compare-expected", testFileName), expected);
+            File.WriteAllText(Path.Combine(outFolder + "compare-actual", testFileName), actual);
+
+            Assert.AreEqual(expected, actual, "Comparing file: " + testFileName);
         }
-        private string MakeComparable(string lines)
+        private string ReadComparable(string fileName)
         {
-            string regex = "time=\"([0-9.])*\"";
-            lines= Regex.Replace(lines, regex, "time=\"\"").Replace("\r", "");
-            string[] linesArray =lines.Split("\n");
-            Array.Sort(linesArray);
-            return string.Join('\n', linesArray);
+            //sort by inner elements (testcase)
+            var xDoc = XDocument.Load(fileName);
+            var newxDoc = new XElement("testsuite", xDoc.Root
+                                               .Elements()
+                                               .OrderByDescending(x => (string)x.Attribute("classname"))
+                                               .ThenBy(x => (string)x.Attribute("name"))
+                                        );
+            xDoc.Root.Elements().Remove();
+            xDoc.Root.Add(newxDoc.Elements());
+            //remove timestamps and CR
+            string xml = xDoc.ToString();
+            string regex = "time=\"([0-9\\.])*\"";
+            xml = Regex.Replace(xml, regex, "time=\"\"");
+            //normalize absolute file paths (expected files are stored without the path of the solution)
+            xml = xml.Replace(@"\", "/");
+            string[] curDir = Directory.GetCurrentDirectory().Replace(@"\", "/").Split("/");
+            string baseDir = string.Join("/", curDir, 0, curDir.Length - 4);
+            xml = xml.Replace(baseDir, "", StringComparison.InvariantCultureIgnoreCase);
+            //xml = xml.Replace("/home/runner/work/dotnet-test-split/dotnet-test-split/", "");
+
+            return xml.Replace("\r", "");
         }
     }
 }

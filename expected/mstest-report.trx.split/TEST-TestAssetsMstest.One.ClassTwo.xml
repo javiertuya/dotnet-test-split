@@ -7,7 +7,7 @@ MESSAGE:
 Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. 
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsMstest.One.ClassTwo.TestOneTwoFail() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 41
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFail() in /TestAssetsMstest/TestAssetsMstest.cs:line 41
 </failure></testcase>
 <testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.0028999"><failure>
 MESSAGE:
@@ -15,13 +15,13 @@ Test method TestAssetsMstest.One.ClassTwo.TestOneTwoFailException threw exceptio
 System.Exception: This is an exception message
 +++++++++++++++++++
 STACK TRACE:
-    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 51
+    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in /TestAssetsMstest/TestAssetsMstest.cs:line 51
 </failure></testcase>
 <testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.0006427"><failure>
 MESSAGE:
 Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. This is a failure message
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 46
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in /TestAssetsMstest/TestAssetsMstest.cs:line 46
 </failure></testcase>
 </testsuite>
