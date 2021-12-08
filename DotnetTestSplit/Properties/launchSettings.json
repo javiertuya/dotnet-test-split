@@ -1,7 +1,8 @@
 {
   "profiles": {
     "NetcoreJunitSplit": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "../../../../reports/mstest-report.trx"
     }
   }
 }

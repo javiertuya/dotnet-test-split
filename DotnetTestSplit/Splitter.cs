@@ -42,7 +42,7 @@ namespace Giis.DotnetTestSplit
                 int skipped = 0;
                 double time = 0.0;
                 string outputFile = Path.Combine(workingFolder, "TEST-" + key + ".xml");
-                Console.WriteLine("Split JUnit single class file: " + outputFile);
+                Console.WriteLine("Split to: " + outputFile);
                 StringWriter writer = new StringWriter();
                 foreach (XmlNode xn in suites[key])
                 {

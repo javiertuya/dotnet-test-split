@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace Giis.DotnetTestSplit
 {
@@ -14,14 +15,19 @@ namespace Giis.DotnetTestSplit
     {
         static void Main(string[] args)
         {
+            var versionString = Assembly.GetEntryAssembly()?
+                                   .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+                                   .InformationalVersion
+                                   .ToString();
+            Console.WriteLine($"DotnetTestSplit v{versionString}");
+
             if (args.Length < 1)
             {
-                Console.WriteLine("Usage: NetcoreJunitSplit 'trx file name'");
+                Console.WriteLine("Usage: DotnetTestSplit <trx file name>");
                 return;
             }
             string inputFileName = args[0];
             string workingFolder = inputFileName + ".split";
-            Console.WriteLine("Split mstest into multiple junit testsuite files from: " + inputFileName);
 
             new DotnetTestSplitMain().Run(inputFileName, workingFolder);
         }
@@ -30,17 +36,25 @@ namespace Giis.DotnetTestSplit
     { 
         public void Run(string inputFileName, string workingFolder)
         {
+            Console.WriteLine("Process mstest file: " + inputFileName);
             //Transforma el archivo.trx a formato junit (archivo.trx.xml) utilizando la hoja de estilos de conversion
             string trx = File.ReadAllText(inputFileName);
-            string xslt = File.ReadAllText("mstest-to-junit.xslt"); //copied to bin on build
+            //string xslt = File.ReadAllText("mstest-to-junit.xslt"); //copied to bin on build
+            string xslt = ReadXslt("mstest-to-junit.xslt"); //copied to bin on build as a resource
             string junit = new Transformer().TransformTrxToJUnit(xslt, trx);
             string junitFile = Path.Combine(inputFileName + ".junit.xml");
-            Console.WriteLine("Generating JUnit file for all classes: " + junitFile);
+            Console.WriteLine("Transform to junit file: " + junitFile);
             File.WriteAllText(junitFile, junit);
 
             //Separa el contenido del resport formato junit en los diferentes archivos TEST-*
             new Splitter().SplitToJunit(workingFolder, junit);
-
+        }
+        private string ReadXslt(string resourceName)
+        {
+            var assembly = typeof(DotnetTestSplit.Program).GetTypeInfo().Assembly;
+            string[] names = assembly.GetManifestResourceNames();
+            Stream resource = assembly.GetManifestResourceStream("DotnetTestSplit."+resourceName);
+            return new StreamReader(resource).ReadToEnd();
         }
     }
 }
