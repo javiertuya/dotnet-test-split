@@ -1,0 +1,27 @@
+<testsuite name="TestAssetsMstest.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0050339999999959705" >
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.00006519999999810011"><skipped /></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0001599" />
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.0003621999999978698"><skipped /></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.0009041"><failure>
+MESSAGE:
+Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. 
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFail() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 41
+</failure></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.0028999"><failure>
+MESSAGE:
+Test method TestAssetsMstest.One.ClassTwo.TestOneTwoFailException threw exception: 
+System.Exception: This is an exception message
++++++++++++++++++++
+STACK TRACE:
+    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 51
+</failure></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.0006427"><failure>
+MESSAGE:
+Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. This is a failure message
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in C:\TUYA\IN2TEST\github\dotnet-test-split\TestAssetsMstest\TestAssetsMstest.cs:line 46
+</failure></testcase>
+</testsuite>

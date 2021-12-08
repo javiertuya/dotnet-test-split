@@ -11,12 +11,10 @@ jobs:
 
       - name: Prepare test assets
         run: dotnet test --logger "trx;LogFileName=../../reports/mstest-report.trx" TestAssetsMstest/TestAssetsMstest.csproj || exit 0
-      #- name: Run split
-      #  run: |
-      #    dotnet build
-      #    DotnetTestSplit/bin/Debug/netcoreapp3.1
-      #    ./DotnetTestSplit.exe ../../../../reports\mstest-report.trx
-      #    cd ../../../..
+      - name: Split tests assets
+      - run: 
+          dotnet build
+          cd DotnetTestSplit/bin/Debug/netcoreapp3.1 && ls -la && ./DotnetTestSplit ../../../../reports/mstest-report.trx
       - name: Run test
         run: dotnet test --logger "trx;LogFileName=../../reports/dotnet-test-split-report.trx" TestDotnetTestSplit/TestDotnetTestSplit.csproj
 

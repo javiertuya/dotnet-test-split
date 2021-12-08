@@ -10,18 +10,21 @@ namespace Test4Giis.DotnetTestSplit
     [TestClass]
     public class TestAll
     {
-        private string trxFile = "../../../../reports/mstest-report.trx";
+        //private string trxFile = "../../../../reports/mstest-report.trx";
         private string expectedFolder = "../../../../expected/mstest-report.trx.split";
         private string outFolder = "../../../../reports/mstest-report.trx.split";
-        [TestMethod]
-        public void TestMstest()
+
+        [DataTestMethod]
+        [DataRow("TEST-TestAssetsMstest.One.ClassOne.xml")]
+        [DataRow("TEST-TestAssetsMstest.One.ClassOne.xml")]
+        [DataRow("TEST-TestAssetsMstest.Two.ClassOne.xml")]
+        [DataRow("TEST-TestAssetsMstest.Two.ClassTwo.xml")]
+        public void TestMstest(string testFile)
         {
-            DotnetTestSplitMain w = new DotnetTestSplitMain();
-            w.Run(trxFile, outFolder);
-            AssertFile("TEST-TestAssetsMstest.One.ClassOne.xml");
-            AssertFile("TEST-TestAssetsMstest.One.ClassTwo.xml");
-            AssertFile("TEST-TestAssetsMstest.Two.ClassOne.xml");
-            AssertFile("TEST-TestAssetsMstest.Two.ClassTwo.xml");
+            //DotnetTestSplitMain w = new DotnetTestSplitMain();
+            //w.Run(trxFile, outFolder);
+            //Split must be executed from outside
+            AssertFile(testFile);
         }
         private void AssertFile(string fileName)
         {
