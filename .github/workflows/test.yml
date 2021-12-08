@@ -18,7 +18,7 @@ jobs:
           #cd DotnetTestSplit/bin/Debug/netcoreapp3.1 && ls -la && ./DotnetTestSplit ../../../../reports/mstest-report.trx
           dotnet new tool-manifest
           dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
-          dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
+          dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit --version 1.1.0-3
           dotnet tool run DotnetTestSplit reports/mstest-report.trx
 
       - name: Run test
