@@ -15,7 +15,7 @@ REM limpieza de caches y otros restos de anteriores paquetes
 dotnet nuget locals all --clear
 rmdir /s /q .config
 rmdir /s /q DotnetTestSplit\nupkg
-REM crea paquete desde cero
+REM crea paquete desde cero, si se usa una prerelease hay que especificar --version en install
 dotnet new tool-manifest
 dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
 dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
