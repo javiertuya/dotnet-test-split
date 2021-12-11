@@ -19,7 +19,7 @@ jobs:
           dotnet new tool-manifest
           dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
           dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
-          dotnet tool run DotnetTestSplit reports/mstest-report.trx
+          dotnet tool run DotnetTestSplit reports/mstest-report.trx reports/mstest-report.trx.split
 
       - name: Run test
         run: dotnet test --logger "trx;LogFileName=../../reports/dotnet-test-split-report.trx" TestDotnetTestSplit/TestDotnetTestSplit.csproj

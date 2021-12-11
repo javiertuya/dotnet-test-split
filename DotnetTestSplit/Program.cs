@@ -21,13 +21,13 @@ namespace Giis.DotnetTestSplit
                                    .ToString();
             Console.WriteLine($"DotnetTestSplit v{versionString}");
 
-            if (args.Length < 1)
+            if (args.Length < 2)
             {
-                Console.WriteLine("Usage: DotnetTestSplit <trx file name>");
+                Console.WriteLine("Usage: DotnetTestSplit <trx file name> <destination folder>");
                 return;
             }
             string inputFileName = args[0];
-            string workingFolder = inputFileName + ".split";
+            string workingFolder = args[1];
 
             new DotnetTestSplitMain().Run(inputFileName, workingFolder);
         }

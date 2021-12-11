@@ -19,7 +19,7 @@ REM crea paquete desde cero, si se usa una prerelease hay que especificar --vers
 dotnet new tool-manifest
 dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
 dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
-dotnet tool run DotnetTestSplit reports/mstest-report.trx
+dotnet tool run DotnetTestSplit reports/mstest-report.trx reports/mstest-report.trx.split
 
 REM Run test
 dotnet test TestDotnetTestSplit/TestDotnetTestSplit.csproj --logger "trx;LogFileName=dotnet-test-split-report.trx" 
