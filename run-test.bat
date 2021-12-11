@@ -2,19 +2,23 @@ REM Prepare test assets
 dotnet test TestAssetsMstest/TestAssetsMstest.csproj --logger "trx;LogFileName=../../reports/mstest-report.trx" 
 
 REM Split tests assets
-dotnet build
-cd DotnetTestSplit\bin\Debug\netcoreapp3.1
-DotnetTestSplit.exe ..\..\..\..\reports\mstest-report.trx
-cd ..\..\..\..\
+rem dotnet build
+rem cd DotnetTestSplit\bin\Debug\netcoreapp3.1
+rem DotnetTestSplit.exe ..\..\..\..\reports\mstest-report.trx
+rem cd ..\..\..\..\
 
 REM Split test assets when installed as local tool
 REM https://docs.microsoft.com/es-es/dotnet/core/tools/global-tools-how-to-create
 REM dotnet nuget locals all --list
+
+REM limpieza de caches y otros restos de anteriores paquetes
+dotnet nuget locals all --clear
 rmdir /s /q .config
 rmdir /s /q DotnetTestSplit\nupkg
+REM crea paquete desde cero
 dotnet new tool-manifest
 dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
-dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit --version 1.1.0-dev2
+dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
 dotnet tool run DotnetTestSplit reports/mstest-report.trx
 
 REM Run test
