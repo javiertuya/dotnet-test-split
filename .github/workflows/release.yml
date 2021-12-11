@@ -1,0 +1,28 @@
+name: Publish to GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
+    #if: ${{ false }}  # disable for now
+    runs-on: ubuntu-latest 
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+            dotnet-version: '3.1.x'
+      - name: Set VERSION variable from tag
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      - name: Build
+        run: dotnet build --configuration Release /p:Version=${VERSION}
+      #- name: Test
+      #  run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+      - name: Pack
+        run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+      - name: Push
+        run: dotnet nuget push DotnetTestSplit.${VERSION}.nupkg --source https://nuget.pkg.github.com/javiertuya/index.json --api-key ${GITHUB_TOKEN}
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

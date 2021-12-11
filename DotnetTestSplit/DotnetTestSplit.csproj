@@ -3,12 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <InformationalVersion>1.1.0-3</InformationalVersion>
+    <InformationalVersion>1.1.0-dev2</InformationalVersion>
     
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>DotnetTestSplit</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
-    <Version>1.1.0-3</Version>
+    <Version>1.1.0-dev2</Version>
     <Authors>Javier Tuya</Authors>
     <Company>GIIS - University of Oviedo</Company>
   </PropertyGroup>

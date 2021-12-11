@@ -14,7 +14,7 @@ rmdir /s /q .config
 rmdir /s /q DotnetTestSplit\nupkg
 dotnet new tool-manifest
 dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
-dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit --version 1.1.0-3
+dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit --version 1.1.0-dev2
 dotnet tool run DotnetTestSplit reports/mstest-report.trx
 
 REM Run test
