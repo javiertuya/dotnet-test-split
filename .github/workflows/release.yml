@@ -23,5 +23,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push to nuget.org
-        run: dotnet nuget push DotnetTestSplit/nupkg/*.nupkg  --api-key ${{ secrets.NUGET_API_KEY }} --source "'https://api.nuget.org/v3/index.json"
+        run: dotnet nuget push DotnetTestSplit/nupkg/*.nupkg  --api-key ${{ secrets.NUGET_API_KEY }} --source "https://api.nuget.org/v3/index.json"
  
