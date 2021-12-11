@@ -16,9 +16,12 @@ jobs:
             dotnet-version: '3.1.x'
       - name: Pack
         run: dotnet pack --configuration Release DotnetTestSplit/DotnetTestSplit.csproj
-      - name: Push
+      - name: Push to GitHub packages
         run: |
           dotnet nuget add source --username javiertuya --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/javiertuya/index.json"
           dotnet nuget push DotnetTestSplit/nupkg/*.nupkg  --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to nuget.org
+        run: dotnet nuget push DotnetTestSplit/nupkg/*.nupkg  --api-key ${{ secrets.NUGET_API_KEY }} --source "'https://api.nuget.org/v3/index.json"
+ 
