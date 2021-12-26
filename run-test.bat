@@ -1,5 +1,7 @@
 REM Prepare test assets
 dotnet test TestAssetsMstest/TestAssetsMstest.csproj --logger "trx;LogFileName=../../reports/mstest-report.trx" 
+dotnet test TestAssetsNunit/TestAssetsNunit.csproj --logger "trx;LogFileName=../../reports/nunit-report.trx" 
+dotnet test TestAssetsXunit/TestAssetsXunit.csproj --logger "trx;LogFileName=../../reports/xunit-report.trx" 
 
 REM Split tests assets
 rem dotnet build
@@ -20,6 +22,8 @@ dotnet new tool-manifest
 dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
 dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
 dotnet tool run DotnetTestSplit reports/mstest-report.trx reports/mstest-report.trx.split
+dotnet tool run DotnetTestSplit reports/nunit-report.trx reports/nunit-report.trx.split
+dotnet tool run DotnetTestSplit reports/xunit-report.trx reports/xunit-report.trx.split
 
 REM Run test
 dotnet test TestDotnetTestSplit/TestDotnetTestSplit.csproj --logger "trx;LogFileName=dotnet-test-split-report.trx" 

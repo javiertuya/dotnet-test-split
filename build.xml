@@ -1,13 +1,59 @@
 <project name="netcore-junit-split" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dn="antlib:org.apache.ant.dotnet" xmlns="antlib:org.apache.tools.ant">
-	<description>DotNet MSTest to JUnit split - Generate html reports</description>
+	<description>additonal utilities</description>
 
-    <target name="report" description="Genera reports html desde los resultados convertidos a JUnit">
+  <target name="nunit.assets" description="Create the nunit asserts from mstest assets, execute only if mstest assets change">
+    <copy file="TestAssetsMstest/TestAssetsMstest.cs" tofile="TestAssetsNunit/TestAssetsNunit.cs" overwrite="true" />
+    <replace file="TestAssetsNunit/TestAssetsNunit.cs">
+      <replacefilter token="Microsoft.VisualStudio.TestTools.UnitTesting" value="NUnit.Framework" />
+      <replacefilter token="TestAssetsMstest" value="TestAssetsNunit" />
+      <replacefilter token="[TestClass]" value="[TestFixture]" />
+      <replacefilter token="[TestInitialize]" value="[SetUp]" />
+      <replacefilter token="[TestMethod]" value="[Test]" />
+      <replacefilter token="[Ignore]" value="[Ignore(&quot;&quot;)]" />
+      <replacefilter token="[DataTestMethod]" value="[Test]" />
+      <replacefilter token="[DataRow(" value="[TestCase(" />
+    </replace>
+  </target>
+
+  <target name="xunit.assets" description="Create the xunit asserts from mstest assets, execute only if mstest assets change">
+    <copy file="TestAssetsMstest/TestAssetsMstest.cs" tofile="TestAssetsXunit/TestAssetsXunit.cs" overwrite="true" />
+    <replace file="TestAssetsXunit/TestAssetsXunit.cs">
+      <replacefilter token="Microsoft.VisualStudio.TestTools.UnitTesting" value="Xunit" />
+      <replacefilter token="TestAssetsMstest" value="TestAssetsXunit" />
+      <replacefilter token="[TestClass]" value="//" />
+      <replacefilter token="[TestInitialize] public void SetupFail()" value="public ClassStp()" />
+      <replacefilter token="[TestMethod][Ignore]" value="[Fact(Skip=&quot;cannotbeempty&quot;)]" />
+      <replacefilter token="[TestMethod][Ignore(" value="[Fact(Skip=" />
+      <replacefilter token="[TestMethod]" value="[Fact]" />
+      <replacefilter token="Assert.AreEqual" value="Assert.Equal" />
+      <replacefilter token="Assert.Fail(&quot;" value="Assert.True(1 == 2, &quot;" />
+      <replacefilter token="Assert.Equal(1, 2, &quot;" value="Assert.True(1 == 2, &quot;" />
+      <replacefilter token="[DataTestMethod]" value="[Theory]" />
+      <replacefilter token="[DataRow(" value="[InlineData(" />
+    </replace>
+  </target>
+
+  <target name="report" description="Genterate html reports from JUnit splitted test results">
       <junitreport todir="reports/mstest-report.trx.split">
         <fileset dir="reports/mstest-report.trx.split">
           <include name="TEST-*.xml" />
         </fileset>
-        <report format="frames" todir="reports/mstest-junit-frames" />
-        <report format="noframes" todir="reports/mstest-junit-noframes" />
+        <report format="frames" todir="reports/junit-mstest-report-frames" />
+        <report format="noframes" todir="reports/junit-mstest-report-noframes" />
+      </junitreport>
+      <junitreport todir="reports/nunit-report.trx.split">
+        <fileset dir="reports/nunit-report.trx.split">
+          <include name="TEST-*.xml" />
+        </fileset>
+        <report format="frames" todir="reports/junit-nunit-report-frames" />
+        <report format="noframes" todir="reports/junit-nunit-report-noframes" />
+      </junitreport>
+      <junitreport todir="reports/xunit-report.trx.split">
+        <fileset dir="reports/xunit-report.trx.split">
+          <include name="TEST-*.xml" />
+        </fileset>
+        <report format="frames" todir="reports/junit-xunit-report-frames" />
+        <report format="noframes" todir="reports/junit-xunit-report-noframes" />
       </junitreport>
   </target>
 

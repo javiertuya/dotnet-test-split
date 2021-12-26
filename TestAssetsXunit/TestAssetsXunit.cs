@@ -1,107 +1,107 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using System;
 
-namespace TestAssetsMstest.One
+namespace TestAssetsXunit.One
 {
-    [TestClass]
+    //
     public class ClassOne
     {
-        [TestMethod]
+        [Fact]
         public void TestOneOnePass()
         {
         }
-        [TestMethod]
+        [Fact]
         public void TestOneOnePassOutput()
         {
             System.Console.WriteLine("This is a console message");
         }
     }
-    [TestClass]
+    //
     public class ClassTwo
     {
-        [TestMethod]
+        [Fact]
         public void TestOneTwoPass()
         {
         }
         //attributes in same line to easy translation to nunit
-        [TestMethod][Ignore]
+        [Fact (Skip="cannotbeempty")]
         public void TestOneOneIgnored()
         {
-            Assert.Fail("This is ignored, no failure");
+            Assert.True(1 == 2, "This is ignored, no failure");
         }
         //attributes in same line to easy translation to nunit
-        [TestMethod][Ignore("This is the ignore cause")]
+        [Fact (Skip="This is the ignore cause")]
         public void TestOneOneIgnoredWithCause()
         {
-            Assert.Fail("This is ignored with cause, no failure");
+            Assert.True(1 == 2, "This is ignored with cause, no failure");
         }
-        [TestMethod]
+        [Fact]
         public void TestOneTwoFail()
         {
-            Assert.AreEqual(1, 2);
+            Assert.Equal(1, 2);
         }
-        [TestMethod]
+        [Fact]
         public void TestOneTwoFailMessage()
         {
-            Assert.AreEqual(1, 2, "This is a failure message");
+            Assert.True(1 == 2, "This is a failure message");
         }
-        [TestMethod]
+        [Fact]
         public void TestOneTwoFailException()
         {
             throw new Exception("This is an exception message");
         }
     }
 }
-namespace TestAssetsMstest.Two
+namespace TestAssetsXunit.Two
 {
-    [TestClass]
+    //
 
     public class ClassOne
     {
-        [TestMethod]
+        [Fact]
         public void TestTwoOnePass()
         {
         }
     }
-    [TestClass]
+    //
     public class ClassTwo
     {
-        [TestMethod]
+        [Fact]
         public void TestTwoTwoPass()
         {
-            Assert.AreEqual(1, 1);
+            Assert.Equal(1, 1);
         }
-        [DataTestMethod]
-        [DataRow(2, 1)]
-        [DataRow(4, 2)]
-        [DataRow(88, 4)]
+        [Theory]
+        [InlineData(2, 1)]
+        [InlineData(4, 2)]
+        [InlineData(88, 4)]
         public void TestTwoTwoParametrized(int expected, int actual)
         {
-            Assert.AreEqual(expected, actual * 2);
+            Assert.Equal(expected, actual * 2);
         }
-        [TestMethod]
+        [Fact]
         public void TestTwoTwoLong()
         {
             System.Threading.Thread.Sleep(541);
-            Assert.AreEqual(1, 1);
+            Assert.Equal(1, 1);
         }
     }
 }
 
-namespace TestAssetsMstest.Stp
+namespace TestAssetsXunit.Stp
 {
-    [TestClass]
+    //
     public class ClassStp
     {
-        [TestInitialize] public void SetupFail()
+        public ClassStp()
         {
             throw new Exception("This test setup fails");
         }
-        [TestMethod]
+        [Fact]
         public void TestStpOne()
         {
         }
-        [TestMethod]
+        [Fact]
         public void TestStpTwo()
         {
         }

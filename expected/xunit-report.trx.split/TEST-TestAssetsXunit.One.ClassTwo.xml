@@ -1,0 +1,27 @@
+<testsuite name="TestAssetsXunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0068434" >
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFail" outcome="Failed" time="0.0005096"><failure>
+MESSAGE:
+Assert.Equal() Failure
+Expected: 1
+Actual:   2
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFail() in /TestAssetsXunit/TestAssetsXunit.cs:line 41</failure></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoPass" outcome="Passed" time="0.0000511" />
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage" outcome="Failed" time="0.0007686"><failure>
+MESSAGE:
+This is a failure message
+Expected: True
+Actual:   False
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage() in /TestAssetsXunit/TestAssetsXunit.cs:line 46</failure></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.001"><skipped /></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailException" outcome="Failed" time="0.0035141"><failure>
+MESSAGE:
+System.Exception : This is an exception message
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailException() in /TestAssetsXunit/TestAssetsXunit.cs:line 51</failure></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneOneIgnored" outcome="NotExecuted" time="0.001"><skipped /></testcase>
+</testsuite>

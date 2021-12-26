@@ -1,0 +1,14 @@
+<testsuite name="TestAssetsNunit.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.0024" >
+<testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.000355"><failure>
+MESSAGE:
+System.Exception : This test setup fails
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98</failure></testcase>
+<testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.002045"><failure>
+MESSAGE:
+System.Exception : This test setup fails
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98</failure></testcase>
+</testsuite>

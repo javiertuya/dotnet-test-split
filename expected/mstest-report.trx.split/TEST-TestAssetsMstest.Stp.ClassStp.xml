@@ -1,0 +1,16 @@
+<testsuite name="TestAssetsMstest.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.0304028" >
+<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.0300475"><failure>
+MESSAGE:
+Initialization method TestAssetsMstest.Stp.ClassStp.SetupFail threw exception. System.Exception: This test setup fails.
++++++++++++++++++++
+STACK TRACE:
+    at TestAssetsMstest.Stp.ClassStp.SetupFail() in /TestAssetsMstest/TestAssetsMstest.cs:line 98
+</failure></testcase>
+<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.0003553"><failure>
+MESSAGE:
+Initialization method TestAssetsMstest.Stp.ClassStp.SetupFail threw exception. System.Exception: This test setup fails.
++++++++++++++++++++
+STACK TRACE:
+    at TestAssetsMstest.Stp.ClassStp.SetupFail() in /TestAssetsMstest/TestAssetsMstest.cs:line 98
+</failure></testcase>
+</testsuite>

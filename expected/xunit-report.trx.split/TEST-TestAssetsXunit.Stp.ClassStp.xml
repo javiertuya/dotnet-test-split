@@ -1,0 +1,14 @@
+<testsuite name="TestAssetsXunit.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.002" >
+<testcase classname="TestAssetsXunit.Stp.ClassStp" name="TestAssetsXunit.Stp.ClassStp.TestStpOne" outcome="Failed" time="0.001"><failure>
+MESSAGE:
+System.Exception : This test setup fails
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.Stp.ClassStp..ctor() in /TestAssetsXunit/TestAssetsXunit.cs:line 98</failure></testcase>
+<testcase classname="TestAssetsXunit.Stp.ClassStp" name="TestAssetsXunit.Stp.ClassStp.TestStpTwo" outcome="Failed" time="0.001"><failure>
+MESSAGE:
+System.Exception : This test setup fails
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.Stp.ClassStp..ctor() in /TestAssetsXunit/TestAssetsXunit.cs:line 98</failure></testcase>
+</testsuite>

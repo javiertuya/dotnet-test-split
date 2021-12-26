@@ -1,41 +1,54 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Xml.Linq;
 using System;
+using Giis.Visualassert;
 
 namespace Test4Giis.DotnetTestSplit
 {
-    [TestClass]
-    public class TestAll
+    [TestFixture]
+    public class TestSplit
     {
-        //private string trxFile = "../../../../reports/mstest-report.trx";
-        private string expectedFolder = "../../../../expected/mstest-report.trx.split";
-        private string outFolder = "../../../../reports/mstest-report.trx.split";
-
-        [DataTestMethod]
-        [DataRow("TEST-TestAssetsMstest.One.ClassOne.xml")]
-        [DataRow("TEST-TestAssetsMstest.One.ClassTwo.xml")]
-        [DataRow("TEST-TestAssetsMstest.Two.ClassOne.xml")]
-        [DataRow("TEST-TestAssetsMstest.Two.ClassTwo.xml")]
-        public void TestMstest(string testFileName)
+        [Test]
+        [TestCase("Mstest", "One.ClassOne")]
+        [TestCase("Mstest", "One.ClassTwo")]
+        [TestCase("Mstest", "Two.ClassOne")]
+        [TestCase("Mstest", "Two.ClassTwo")]
+        [TestCase("Mstest", "Stp.ClassStp")]
+        [TestCase("Nunit", "One.ClassOne")]
+        [TestCase("Nunit", "One.ClassTwo")]
+        [TestCase("Nunit", "Two.ClassOne")]
+        [TestCase("Nunit", "Two.ClassTwo")]
+        [TestCase("Nunit", "Stp.ClassStp")]
+        [TestCase("Xunit", "One.ClassOne")]
+        [TestCase("Xunit", "One.ClassTwo")]
+        [TestCase("Xunit", "Two.ClassOne")]
+        [TestCase("Xunit", "Two.ClassTwo")]
+        [TestCase("Xunit", "Stp.ClassStp")]
+        public void TestAll(string framework, string testClass)
         {
+            //Generation of trx files y split must be executed from outside
+            string testFileName = "TEST-TestAssets" + framework + "." + testClass + ".xml";
+            string expectedFolder = "../../../../expected/" + framework.ToLower() + "-report.trx.split";
+            string outFolder = "../../../../reports/" + framework.ToLower() + "-report.trx.split";
+            //uncomment/customize only for debug
             //DotnetTestSplitMain w = new DotnetTestSplitMain();
-            //w.Run(trxFile, outFolder);
-            //Split must be executed from outside
+            //w.Run("../../../../reports/mstest-report.trx", outFolder);
 
             //remove times and sort expected and actual to make comparable
             string expected = ReadComparable(Path.Combine(expectedFolder, testFileName));
             string actual = ReadComparable(Path.Combine(outFolder, testFileName));
 
-            //to check differences manually with compared data
-            Directory.CreateDirectory(Path.Combine(outFolder + "compare-expected"));
-            Directory.CreateDirectory(Path.Combine(outFolder + "compare-actual"));
-            File.WriteAllText(Path.Combine(outFolder + "compare-expected", testFileName), expected);
-            File.WriteAllText(Path.Combine(outFolder + "compare-actual", testFileName), actual);
+            //to manually check differences of compared data
+            //Directory.CreateDirectory(Path.Combine(outFolder + "compare-expected"));
+            //Directory.CreateDirectory(Path.Combine(outFolder + "compare-actual"));
+            //File.WriteAllText(Path.Combine(outFolder + "compare-expected", testFileName), expected);
+            //File.WriteAllText(Path.Combine(outFolder + "compare-actual", testFileName), actual);
 
-            Assert.AreEqual(expected, actual, "Comparing file: " + testFileName);
+            VisualAssert va = new VisualAssert().SetUseLocalAbsolutePath(true); 
+            va.AssertEquals(expected, actual, "Comparing file: " + testFileName, testFileName + ".html");
         }
         private string ReadComparable(string fileName)
         {
@@ -50,7 +63,7 @@ namespace Test4Giis.DotnetTestSplit
             xDoc.Root.Add(newxDoc.Elements());
             //remove timestamps and CR
             string xml = xDoc.ToString();
-            string regex = "time=\"([0-9\\.])*\"";
+            string regex = "time=\"([0-9E\\-\\.])*\"";
             xml = Regex.Replace(xml, regex, "time=\"\"");
             //normalize absolute file paths (expected files are stored without the path of the solution)
             xml = xml.Replace(@"\", "/");

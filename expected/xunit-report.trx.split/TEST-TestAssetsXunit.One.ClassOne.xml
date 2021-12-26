@@ -1,0 +1,4 @@
+<testsuite name="TestAssetsXunit.One.ClassOne" tests="2" failures="0" errors="0" skipped="0" time="0.0037675" >
+<testcase classname="TestAssetsXunit.One.ClassOne" name="TestAssetsXunit.One.ClassOne.TestOneOnePass" outcome="Passed" time="0.0000811" />
+<testcase classname="TestAssetsXunit.One.ClassOne" name="TestAssetsXunit.One.ClassOne.TestOneOnePassOutput" outcome="Passed" time="0.0036864" />
+</testsuite>
