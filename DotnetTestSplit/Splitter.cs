@@ -46,6 +46,12 @@ namespace Giis.DotnetTestSplit
                 StringWriter writer = new StringWriter();
                 foreach (XmlNode xn in suites[key])
                 {
+                    //MSTest parametrized return a test with DataDrivenTest and one for each row with DataDrivenDataRow
+                    //The former is excluded to do not count an additional test
+                    if (xn.Attributes["resultType"].Value == "DataDrivenTest")
+                        continue;
+                    xn.Attributes.Remove(xn.Attributes["resultType"]); //not needed anymore
+
                     if (xn.Attributes["outcome"].Value == "NotExecuted") //esto no lo crea el xslt
                         xn.AppendChild(xn.OwnerDocument.CreateElement("skipped"));
                     tests++;

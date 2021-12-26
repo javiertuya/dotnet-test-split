@@ -20,7 +20,7 @@
 				<xsl:for-each select="//a:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
-					<xsl:variable name="totalduration">
+          <xsl:variable name="totalduration">
 						<xsl:choose>
 							<xsl:when test="@duration">
 								<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
@@ -82,8 +82,9 @@ STACK TRACE:
 				<xsl:for-each select="//b:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
-					<xsl:variable name="testId" select="@testId"/>
-					<xsl:variable name="totalduration">
+          <xsl:variable name="testId" select="@testId"/>
+          <xsl:variable name="resultType" select="@resultType"/>
+          <xsl:variable name="totalduration">
 						<xsl:choose>
 							<xsl:when test="@duration">
 								<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
@@ -117,10 +118,12 @@ STACK TRACE:
 							<!-- Tuya 2019 corrige el valor de className y anyade atributo outcome
 							<xsl:variable name="className" select="substring-before(b:TestMethod/@className, ',')"/>	
 							-->
+              <!-- Tuya 2021 gets resultType to be able to exclude DataDrivenTest (but include each DataDrivenDataRow) -->
 							<xsl:variable name="className" select="b:TestMethod/@className"/>	
 								<testcase classname="{$className}"
 									name="{$testName}"
 									outcome="{$outcome}"
+									resultType="{$resultType}"
 									time="{$totalduration}"
 									>
 

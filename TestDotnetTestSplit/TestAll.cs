@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System;
 using Giis.Visualassert;
+using Giis.DotnetTestSplit;
 
 namespace Test4Giis.DotnetTestSplit
 {
