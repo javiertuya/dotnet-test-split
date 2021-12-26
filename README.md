@@ -19,11 +19,11 @@ Install as a [.Net Core tool](https://docs.microsoft.com/es-es/dotnet/core/tools
 dotnet tool install --global DotnetTestSplit
 ```
 
-Run the `NetcoreJunitSplit` tool, passing the trx file as parameter.
+Run the `DotnetTestSplit` tool, passing the trx file as parameter.
 The below example will place each junit xml report file at the report folder, one file per test class
 
 ```
-NetcoreJunitSplit reports/mstest-report.trx reports
+DotnetTestSplit reports/mstest-report.trx reports
 ```
 
 ## Generating html reports
