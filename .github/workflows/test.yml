@@ -11,11 +11,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework: ['netcoreapp3.1', 'net6.0']
+      fail-fast: false
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v2
         with:
             dotnet-version: '3.1.x'
+      - uses: actions/setup-dotnet@v2
+        with:
+            dotnet-version: '6.0.x'
 
       - name: Generate mstest trx results from test assets
         run: dotnet test --logger "trx;LogFileName=../../reports/mstest-report.trx" TestAssetsMstest/TestAssetsMstest.csproj || exit 0
@@ -30,13 +37,14 @@ jobs:
           #cd DotnetTestSplit/bin/Debug/netcoreapp3.1 && ls -la && ./DotnetTestSplit ../../../../reports/mstest-report.trx
           dotnet new tool-manifest
           dotnet pack DotnetTestSplit/DotnetTestSplit.csproj
-          dotnet tool install --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
-          dotnet tool run DotnetTestSplit reports/mstest-report.trx reports/mstest-report.trx.split
-          dotnet tool run DotnetTestSplit reports/nunit-report.trx reports/nunit-report.trx.split
-          dotnet tool run DotnetTestSplit reports/xunit-report.trx reports/xunit-report.trx.split
+          #Note: to specify a target framework, tool must be installed as global, Then call is made by name instead of using dotnet tool run
+          dotnet tool install --global --framework ${{ matrix.framework }} --no-cache --add-source DotnetTestSplit/nupkg DotnetTestSplit
+          DotnetTestSplit reports/mstest-report.trx reports/mstest-report.trx.split
+          DotnetTestSplit reports/nunit-report.trx reports/nunit-report.trx.split
+          DotnetTestSplit reports/xunit-report.trx reports/xunit-report.trx.split
 
       - name: Run test
-        run: dotnet test --logger "trx;LogFileName=../../reports/dotnet-test-split-report.trx" TestDotnetTestSplit/TestDotnetTestSplit.csproj
+        run: dotnet test --framework ${{ matrix.framework }} --logger "trx;LogFileName=../../reports/dotnet-test-split-report.trx" TestDotnetTestSplit/TestDotnetTestSplit.csproj
 
       #Shows error message in case of some failure (as test report checks are not always produced)
       - name: Failure message if needed
@@ -48,7 +56,7 @@ jobs:
         if: ${{ always() && github.actor=='javiertuya' }} 
         uses: dorny/test-reporter@v1
         with:
-          name: test-report
+          name: test-report-${{ matrix.framework }}
           path: reports/dotnet-test-split-report.trx
           reporter: dotnet-trx
           fail-on-error: 'true'
@@ -60,7 +68,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-report-files
+          name: test-report-files-${{ matrix.framework }}
           path: |
             expected
             reports
