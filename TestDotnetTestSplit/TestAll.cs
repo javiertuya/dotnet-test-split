@@ -73,7 +73,7 @@ namespace Test4Giis.DotnetTestSplit
             xml = xml.Replace(baseDir, "", StringComparison.InvariantCultureIgnoreCase);
             //xml = xml.Replace("/home/runner/work/dotnet-test-split/dotnet-test-split/", "");
 
-            return xml.Replace("\r", "");
+            return xml.Replace("\r", "").Replace("\n\n", "\n");
         }
     }
 }

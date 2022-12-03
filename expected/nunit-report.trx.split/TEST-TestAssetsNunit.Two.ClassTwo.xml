@@ -10,6 +10,9 @@ MESSAGE:
 
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsNunit.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /TestAssetsNunit/TestAssetsNunit.cs:line 80
+   at TestAssetsNunit.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 80
+
+1)    at TestAssetsNunit.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 80
+
 </failure></testcase>
 </testsuite>

@@ -4,11 +4,13 @@ MESSAGE:
 System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98</failure></testcase>
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98
+</failure></testcase>
 <testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.002045"><failure>
 MESSAGE:
 System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98</failure></testcase>
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98
+</failure></testcase>
 </testsuite>
