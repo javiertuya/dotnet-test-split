@@ -1,7 +1,7 @@
 <testsuite name="TestAssetsXunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0068434" >
 <testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFail" outcome="Failed" time="0.0005096"><failure>
 MESSAGE:
-Assert.Equal() Failure
+Assert.Equal() Failure: Values differ
 Expected: 1
 Actual:   2
 +++++++++++++++++++
@@ -11,8 +11,6 @@ STACK TRACE:
 <testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage" outcome="Failed" time="0.0007686"><failure>
 MESSAGE:
 This is a failure message
-Expected: True
-Actual:   False
 +++++++++++++++++++
 STACK TRACE:
    at TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage() in /TestAssetsXunit/TestAssetsXunit.cs:line 46</failure></testcase>
