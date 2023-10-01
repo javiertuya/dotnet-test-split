@@ -16,7 +16,7 @@ jobs:
         framework: ['netcoreapp3.1', 'net6.0']
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v3.2.0
         with:
             dotnet-version: '3.1.x'
