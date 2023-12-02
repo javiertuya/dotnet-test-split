@@ -13,13 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        framework: ['net6.0']
+        framework: ['net6.0', net8.0]
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v3.2.0
         with:
-            dotnet-version: '6.0.x'
+            dotnet-version: |
+              6.0.x
+              8.0.x
 
       - name: Generate mstest trx results from test assets
         run: dotnet test --logger "trx;LogFileName=../../reports/mstest-report.trx" TestAssetsMstest/TestAssetsMstest.csproj || exit 0
