@@ -65,7 +65,7 @@ jobs:
         run: ant report
       - name: Publish test report files
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-report-files-${{ matrix.framework }}
           path: |
