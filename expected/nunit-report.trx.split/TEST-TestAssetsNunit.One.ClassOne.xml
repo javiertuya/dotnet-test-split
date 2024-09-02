@@ -1,4 +1,4 @@
-<testsuite name="TestAssetsNunit.One.ClassOne" tests="2" failures="0" errors="0" skipped="0" time="0.000498" >
-<testcase classname="TestAssetsNunit.One.ClassOne" name="TestOneOnePassOutput" outcome="Passed" time="0.0003862" />
-<testcase classname="TestAssetsNunit.One.ClassOne" name="TestOneOnePass" outcome="Passed" time="0.0001118" />
+<testsuite name="TestAssetsNunit.One.ClassOne" tests="2" failures="0" errors="0" skipped="0" time="0.003155" >
+<testcase classname="TestAssetsNunit.One.ClassOne" name="TestOneOnePass" outcome="Passed" time="0.002819" />
+<testcase classname="TestAssetsNunit.One.ClassOne" name="TestOneOnePassOutput" outcome="Passed" time="0.000336" />
 </testsuite>

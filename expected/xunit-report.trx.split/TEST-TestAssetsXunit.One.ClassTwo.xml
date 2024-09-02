@@ -1,25 +1,31 @@
-<testsuite name="TestAssetsXunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0068434" >
-<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFail" outcome="Failed" time="0.0005096"><failure>
+<testsuite name="TestAssetsXunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.014577" >
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFail" outcome="Failed" time="0.0088971"><failure>
 MESSAGE:
 Assert.Equal() Failure: Values differ
 Expected: 1
 Actual:   2
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsXunit.One.ClassTwo.TestOneTwoFail() in /TestAssetsXunit/TestAssetsXunit.cs:line 41</failure></testcase>
-<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoPass" outcome="Passed" time="0.0000511" />
-<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage" outcome="Failed" time="0.0007686"><failure>
-MESSAGE:
-This is a failure message
-+++++++++++++++++++
-STACK TRACE:
-   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage() in /TestAssetsXunit/TestAssetsXunit.cs:line 46</failure></testcase>
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 41
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
 <testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.001"><skipped /></testcase>
-<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailException" outcome="Failed" time="0.0035141"><failure>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneOneIgnored" outcome="NotExecuted" time="0.001"><skipped /></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoPass" outcome="Passed" time="0.0000502" />
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailException" outcome="Failed" time="0.0027023"><failure>
 MESSAGE:
 System.Exception : This is an exception message
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailException() in /TestAssetsXunit/TestAssetsXunit.cs:line 51</failure></testcase>
-<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneOneIgnored" outcome="NotExecuted" time="0.001"><skipped /></testcase>
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 51
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
+<testcase classname="TestAssetsXunit.One.ClassTwo" name="TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage" outcome="Failed" time="0.0009274"><failure>
+MESSAGE:
+This is a failure message
++++++++++++++++++++
+STACK TRACE:
+   at TestAssetsXunit.One.ClassTwo.TestOneTwoFailMessage() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 46
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
 </testsuite>

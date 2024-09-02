@@ -1,14 +1,32 @@
-<testsuite name="TestAssetsNunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.045111" >
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.000213"><skipped /></testcase>
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.003257"><failure>
+<testsuite name="TestAssetsNunit.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0410697" >
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.0376509"><failure>
+MESSAGE:
+  Assert.That(actual, Is.EqualTo(expected))
+  Expected: 1
+  But was:  2
+
++++++++++++++++++++
+STACK TRACE:
+   at NUnit.Framework.Legacy.ClassicAssert.AreEqual(Object expected, Object actual)
+   at TestAssetsNunit.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 41
+
+1)    at NUnit.Framework.Legacy.ClassicAssert.AreEqual(Object expected, Object actual)
+   at TestAssetsNunit.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 41
+
+</failure></testcase>
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.000005"><skipped /></testcase>
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.0021289"><failure>
 MESSAGE:
 System.Exception : This is an exception message
 +++++++++++++++++++
 STACK TRACE:
    at TestAssetsNunit.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 51
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.000056" />
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.000862"><failure>
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0000649" />
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.000247"><skipped /></testcase>
+<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.000973"><failure>
 MESSAGE:
   This is a failure message
 Assert.That(actual, Is.EqualTo(expected))
@@ -22,22 +40,6 @@ STACK TRACE:
 
 1)    at NUnit.Framework.Legacy.ClassicAssert.AreEqual(Object expected, Object actual, String message, Object[] args)
    at TestAssetsNunit.One.ClassTwo.TestOneTwoFailMessage() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 46
-
-</failure></testcase>
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.000004"><skipped /></testcase>
-<testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.040719"><failure>
-MESSAGE:
-  Assert.That(actual, Is.EqualTo(expected))
-  Expected: 1
-  But was:  2
-
-+++++++++++++++++++
-STACK TRACE:
-   at NUnit.Framework.Legacy.ClassicAssert.AreEqual(Object expected, Object actual)
-   at TestAssetsNunit.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 41
-
-1)    at NUnit.Framework.Legacy.ClassicAssert.AreEqual(Object expected, Object actual)
-   at TestAssetsNunit.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 41
 
 </failure></testcase>
 </testsuite>

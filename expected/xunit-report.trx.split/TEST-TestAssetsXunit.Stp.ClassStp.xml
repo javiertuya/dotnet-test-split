@@ -4,13 +4,13 @@ MESSAGE:
 System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsXunit.Stp.ClassStp..ctor() in /TestAssetsXunit/TestAssetsXunit.cs:line 98
+   at TestAssetsXunit.Stp.ClassStp..ctor() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 98
    at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)</failure></testcase>
 <testcase classname="TestAssetsXunit.Stp.ClassStp" name="TestAssetsXunit.Stp.ClassStp.TestStpTwo" outcome="Failed" time="0.001"><failure>
 MESSAGE:
 System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsXunit.Stp.ClassStp..ctor() in /TestAssetsXunit/TestAssetsXunit.cs:line 98
+   at TestAssetsXunit.Stp.ClassStp..ctor() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 98
    at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)</failure></testcase>
 </testsuite>

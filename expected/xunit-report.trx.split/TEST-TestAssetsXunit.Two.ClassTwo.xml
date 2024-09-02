@@ -1,14 +1,16 @@
-<testsuite name="TestAssetsXunit.Two.ClassTwo" tests="5" failures="1" errors="0" skipped="0" time="0.5602731999999999" >
-<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 2, actual: 1)" outcome="Passed" time="0.0055664" />
-<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 88, actual: 4)" outcome="Failed" time="0.0036297"><failure>
+<testsuite name="TestAssetsXunit.Two.ClassTwo" tests="5" failures="1" errors="0" skipped="0" time="0.5423776999999999" >
+<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoLong" outcome="Passed" time="0.5413756" />
+<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoPass" outcome="Passed" time="0.000092" />
+<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 2, actual: 1)" outcome="Passed" time="0.0002719" />
+<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 4, actual: 2)" outcome="Passed" time="0.0001353" />
+<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 88, actual: 4)" outcome="Failed" time="0.0005029"><failure>
 MESSAGE:
 Assert.Equal() Failure: Values differ
 Expected: 88
 Actual:   8
 +++++++++++++++++++
 STACK TRACE:
-   at TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /TestAssetsXunit/TestAssetsXunit.cs:line 80</failure></testcase>
-<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(expected: 4, actual: 2)" outcome="Passed" time="0.0000256" />
-<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoPass" outcome="Passed" time="0.000601" />
-<testcase classname="TestAssetsXunit.Two.ClassTwo" name="TestAssetsXunit.Two.ClassTwo.TestTwoTwoLong" outcome="Passed" time="0.5504505" />
+   at TestAssetsXunit.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsXunit/TestAssetsXunit.cs:line 80
+   at InvokeStub_ClassTwo.TestTwoTwoParametrized(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)</failure></testcase>
 </testsuite>
