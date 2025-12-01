@@ -16,7 +16,7 @@ jobs:
         framework: ['net6.0', net8.0]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Select .NET Version
         uses: actions/setup-dotnet@v5.0.0
         with:
