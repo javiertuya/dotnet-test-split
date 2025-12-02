@@ -10,9 +10,9 @@ jobs:
       contents: read
       packages: write 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Select .NET Version
-        uses: actions/setup-dotnet@v5.0.0
+        uses: actions/setup-dotnet@v5.0.1
         with:
             dotnet-version: '8.0.x'
       - name: Pack
