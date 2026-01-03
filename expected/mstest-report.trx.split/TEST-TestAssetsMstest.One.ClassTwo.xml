@@ -1,33 +1,37 @@
-<testsuite name="TestAssetsMstest.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.0020571000000000274" >
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.0004511"><failure>
+<testsuite name="TestAssetsMstest.One.ClassTwo" tests="6" failures="3" errors="0" skipped="2" time="0.001978400000002214" >
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.000401"><failure>
 MESSAGE:
-Test method TestAssetsMstest.One.ClassTwo.TestOneTwoFailException threw exception: 
+Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. 'expected' expression: '1', 'actual' expression: '2'. This is a failure message
++++++++++++++++++++
+STACK TRACE:
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.ThrowAssertAreEqualFailed(Object expected, Object actual, String userMessage) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 665
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 46
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.0000494000000017536"><skipped /></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0001115" />
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.0004214000000004603"><skipped /></testcase>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailException" outcome="Failed" time="0.0003933"><failure>
+MESSAGE:
+Test method TestAssetsMstest.One.ClassTwo.TestOneTwoFailException threw exception:
 System.Exception: This is an exception message
 +++++++++++++++++++
 STACK TRACE:
-    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 51
+   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 51
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.0000694999999999446"><skipped /></testcase>
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.000712"><failure>
+<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.0006018"><failure>
 MESSAGE:
-Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. 
+Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. 'expected' expression: '1', 'actual' expression: '2'.
 +++++++++++++++++++
 STACK TRACE:
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.ThrowAssertAreEqualFailed(Object expected, Object actual, String userMessage) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 665
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405
    at TestAssetsMstest.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 41
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
-</failure></testcase>
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFailMessage" outcome="Failed" time="0.0004418"><failure>
-MESSAGE:
-Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;2&gt;. This is a failure message
-+++++++++++++++++++
-STACK TRACE:
-   at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 46
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
-</failure></testcase>
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.00027700000000008273"><skipped /></testcase>
-<testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0001057" />
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
 </testsuite>

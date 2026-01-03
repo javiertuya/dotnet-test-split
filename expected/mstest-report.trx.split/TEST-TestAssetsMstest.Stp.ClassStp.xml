@@ -1,19 +1,19 @@
-<testsuite name="TestAssetsMstest.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.0152701" >
-<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.0146925"><failure>
+<testsuite name="TestAssetsMstest.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.0596421" >
+<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.0590641"><failure>
 MESSAGE:
 Initialization method TestAssetsMstest.Stp.ClassStp.SetupFail threw exception. System.Exception: This test setup fails.
 +++++++++++++++++++
 STACK TRACE:
-    at TestAssetsMstest.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 98
+   at TestAssetsMstest.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 98
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
-<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.0005776"><failure>
+<testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.000578"><failure>
 MESSAGE:
 Initialization method TestAssetsMstest.Stp.ClassStp.SetupFail threw exception. System.Exception: This test setup fails.
 +++++++++++++++++++
 STACK TRACE:
-    at TestAssetsMstest.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 98
+   at TestAssetsMstest.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 98
    at InvokeStub_ClassStp.SetupFail(Object, Object, IntPtr*)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>

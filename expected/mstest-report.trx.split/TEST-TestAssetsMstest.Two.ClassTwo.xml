@@ -1,15 +1,17 @@
-<testsuite name="TestAssetsMstest.Two.ClassTwo" tests="5" failures="1" errors="0" skipped="0" time="0.5451000999999999" >
-<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (4,2)" outcome="Passed" time="0.0001952" />
-<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoLong" outcome="Passed" time="0.541202" />
-<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (2,1)" outcome="Passed" time="0.0002437" />
-<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoPass" outcome="Passed" time="0.0004276" />
-<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (88,4)" outcome="Failed" time="0.0030316"><failure>
+<testsuite name="TestAssetsMstest.Two.ClassTwo" tests="5" failures="1" errors="0" skipped="0" time="0.5629677" >
+<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoLong" outcome="Passed" time="0.5412216" />
+<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (2,1)" outcome="Passed" time="0.0001719" />
+<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (4,2)" outcome="Passed" time="0.0001854" />
+<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoPass" outcome="Passed" time="0.0006088" />
+<testcase classname="TestAssetsMstest.Two.ClassTwo" name="TestTwoTwoParametrized (88,4)" outcome="Failed" time="0.02078"><failure>
 MESSAGE:
-Assert.AreEqual failed. Expected:&lt;88&gt;. Actual:&lt;8&gt;. 
+Assert.AreEqual failed. Expected:&lt;88&gt;. Actual:&lt;8&gt;. 'expected' expression: 'expected', 'actual' expression: 'actual * 2'.
 +++++++++++++++++++
 STACK TRACE:
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.ThrowAssertAreEqualFailed(Object expected, Object actual, String userMessage) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 665
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492
+   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405
    at TestAssetsMstest.Two.ClassTwo.TestTwoTwoParametrized(Int32 expected, Int32 actual) in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 80
    at InvokeStub_ClassTwo.TestTwoTwoParametrized(Object, Span`1)
-   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-</failure></testcase>
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)</failure></testcase>
 </testsuite>
