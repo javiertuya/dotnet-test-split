@@ -23,6 +23,9 @@ STACK TRACE:
    at TestAssetsNunit.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 51
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+1)    at TestAssetsNunit.One.ClassTwo.TestOneTwoFailException() in /TestAssetsNunit/TestAssetsNunit.cs:line 51
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
 <testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0000649" />
 <testcase classname="TestAssetsNunit.One.ClassTwo" name="TestOneOneIgnored" outcome="NotExecuted" time="0.000247"><skipped /></testcase>
