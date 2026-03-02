@@ -1,18 +1,28 @@
 <testsuite name="TestAssetsNunit.Stp.ClassStp" tests="2" failures="2" errors="0" skipped="0" time="0.0021060000000000002" >
 <testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpOne" outcome="Failed" time="0.001629"><failure>
 MESSAGE:
-System.Exception : This test setup fails
+SetUp : System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
+--SetUp
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+1) --SetUp
    at TestAssetsNunit.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 98
    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
 <testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.000477"><failure>
 MESSAGE:
-System.Exception : This test setup fails
+SetUp : System.Exception : This test setup fails
 +++++++++++++++++++
 STACK TRACE:
+--SetUp
+   at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98
+   at InvokeStub_ClassStp.SetupFail(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+1) --SetUp
    at TestAssetsNunit.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 98
    at InvokeStub_ClassStp.SetupFail(Object, Object, IntPtr*)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
