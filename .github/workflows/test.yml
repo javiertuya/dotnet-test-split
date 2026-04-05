@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Select .NET Version
-        uses: actions/setup-dotnet@v5.1.0
+        uses: actions/setup-dotnet@v5.2.0
         with:
             dotnet-version: |
               8.0.x
@@ -54,7 +54,7 @@ jobs:
       #prevents execution on PR or dependabot that fails with "Resource not accessible by integration" due to permissions
       - name: Publish test report
         if: ${{ always() && github.actor=='javiertuya' }} 
-        uses: dorny/test-reporter@v2
+        uses: dorny/test-reporter@v3
         with:
           name: test-report-${{ matrix.framework }}
           path: reports/dotnet-test-split-report.trx
