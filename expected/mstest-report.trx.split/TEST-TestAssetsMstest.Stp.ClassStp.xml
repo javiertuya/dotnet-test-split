@@ -5,7 +5,7 @@ Initialization method TestAssetsMstest.Stp.ClassStp.SetupFail threw exception. S
 +++++++++++++++++++
 STACK TRACE:
    at TestAssetsMstest.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 98
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
 <testcase classname="TestAssetsMstest.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.000578"><failure>

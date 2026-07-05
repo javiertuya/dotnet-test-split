@@ -8,7 +8,7 @@ STACK TRACE:
    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492
    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405
    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailMessage() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 46
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
 <testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneOneIgnoredWithCause" outcome="NotExecuted" time="0.0000494000000017536"><skipped /></testcase>
 <testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoPass" outcome="Passed" time="0.0001115" />
@@ -20,7 +20,7 @@ System.Exception: This is an exception message
 +++++++++++++++++++
 STACK TRACE:
    at TestAssetsMstest.One.ClassTwo.TestOneTwoFailException() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 51
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
 <testcase classname="TestAssetsMstest.One.ClassTwo" name="TestOneTwoFail" outcome="Failed" time="0.0006018"><failure>
@@ -32,6 +32,6 @@ STACK TRACE:
    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492
    at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405
    at TestAssetsMstest.One.ClassTwo.TestOneTwoFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsMstest/TestAssetsMstest.cs:line 41
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</failure></testcase>
 </testsuite>
