@@ -3,7 +3,6 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Xml.Linq;
-using System;
 using Giis.Visualassert;
 using Giis.DotnetTestSplit;
 
@@ -69,12 +68,10 @@ namespace Test4Giis.DotnetTestSplit
             string xml = xDoc.ToString();
             string regex = "time=\"([0-9E\\-\\.])*\"";
             xml = Regex.Replace(xml, regex, "time=\"\"");
-            //normalize absolute file paths (expected files are stored without the path of the solution)
+            //normalize absolute source paths in stack traces so the comparison is independent
+            //of the environment (CI vs local): strip everything before the TestAssets* project folder
             xml = xml.Replace(@"\", "/");
-            string[] curDir = Directory.GetCurrentDirectory().Replace(@"\", "/").Split("/");
-            string baseDir = string.Join("/", curDir, 0, curDir.Length - 4);
-            xml = xml.Replace(baseDir, "", StringComparison.InvariantCultureIgnoreCase);
-            //xml = xml.Replace("/home/runner/work/dotnet-test-split/dotnet-test-split/", "");
+            xml = Regex.Replace(xml, @"in [^\n]*?/(TestAssets(Mstest|Nunit|Xunit))/", "in /$1/");
 
             return xml.Replace("\r", "").Replace("\n\n", "\n");
         }
