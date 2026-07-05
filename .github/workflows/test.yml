@@ -11,6 +11,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    # Force English UI culture so localized framework messages (e.g. MSTest asserts)
+    # in the generated trx match the expected files, independently of the runner language
+    env:
+      DOTNET_CLI_UI_LANGUAGE: en
     strategy:
       matrix:
         framework: ['net8.0', 'net10.0']

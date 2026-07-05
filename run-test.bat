@@ -1,5 +1,9 @@
+REM Force English UI culture so localized framework messages (e.g. MSTest asserts)
+REM in the generated trx match the expected files, independently of the OS language
+set DOTNET_CLI_UI_LANGUAGE=en
+
 REM Prepare test assets
-dotnet test TestAssetsMstest/TestAssetsMstest.csproj --logger "trx;LogFileName=../../reports/mstest-report.trx" 
+dotnet test TestAssetsMstest/TestAssetsMstest.csproj --logger "trx;LogFileName=../../reports/mstest-report.trx"
 dotnet test TestAssetsNunit/TestAssetsNunit.csproj --logger "trx;LogFileName=../../reports/nunit-report.trx" 
 dotnet test TestAssetsXunit/TestAssetsXunit.csproj --logger "trx;LogFileName=../../reports/xunit-report.trx" 
 
