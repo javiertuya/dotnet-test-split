@@ -6,11 +6,11 @@ SetUp : System.Exception : This test setup fails
 STACK TRACE:
 --SetUp
    at TestAssetsNunit.Stp.ClassStp.SetupFail() in /TestAssetsNunit/TestAssetsNunit.cs:line 98
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 1) --SetUp
    at TestAssetsNunit.Stp.ClassStp.SetupFail() in /home/runner/work/dotnet-test-split/dotnet-test-split/TestAssetsNunit/TestAssetsNunit.cs:line 98
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
 </failure></testcase>
 <testcase classname="TestAssetsNunit.Stp.ClassStp" name="TestStpTwo" outcome="Failed" time="0.000477"><failure>
