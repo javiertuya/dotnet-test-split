@@ -46,6 +46,9 @@ namespace Test4Giis.DotnetTestSplit
             string testFileName = "TEST-TestAssets" + framework + "." + testClass + ".xml";
             string expectedFolder = "../../../../expected/" + framework.ToLower() + "-report.trx.split";
             string outFolder = "../../../../reports/" + framework.ToLower() + "-report.trx.split";
+            //create the reports output folder if it does not exist so a standalone run does not
+            //crash with DirectoryNotFoundException; a missing actual file just fails the comparison
+            Directory.CreateDirectory(outFolder);
             //remove times and sort expected and actual to make comparable
             string expected = ReadComparable(Path.Combine(expectedFolder, testFileName));
             string actual = ReadComparable(Path.Combine(outFolder, testFileName));
@@ -55,6 +58,10 @@ namespace Test4Giis.DotnetTestSplit
         }
         private string ReadComparable(string fileName)
         {
+            //when the actual splitted file has not been generated, return empty content so the
+            //comparison fails clearly (showing the missing file) instead of throwing
+            if (!File.Exists(fileName))
+                return "";
             //sort by inner elements (testcase)
             var xDoc = XDocument.Load(fileName);
             var newxDoc = new XElement("testsuite", xDoc.Root
