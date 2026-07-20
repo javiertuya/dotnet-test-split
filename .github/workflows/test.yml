@@ -11,6 +11,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    #avoids duplicate execution of pr from local repo, but allows pr from forked repos and dependabot
+    if: (github.event_name != 'pull_request' && ! github.event.pull_request.head.repo.fork) || (github.event_name == 'pull_request' && (github.event.pull_request.head.repo.fork || startsWith(github.head_ref, 'dependabot/')))
     # Force English UI culture so localized framework messages (e.g. MSTest asserts)
     # in the generated trx match the expected files, independently of the runner language
     env:
